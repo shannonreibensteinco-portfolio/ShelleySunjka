@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fireheart — Copywriting & Marketing Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* === RESET === */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  ul { list-style: none; }
+
+  /* === AAA PALETTE ===
+     All ratios verified against WCAG 2.1 AAA (7:1 minimum)
+     --fire-red:    #FF7055 on #0D0A08 = 7.24:1  AAA
+     --ember:       #FF8C52 on #0D0A08 = 8.58:1  AAA
+     --cobalt-text: #9BB8FF on #0D0A08 = 10.05:1 AAA
+     --cream:       #F2EDE6 on #0D0A08 = 16.95:1 AAA
+     --warm-mid:    #C8B8A8 on #0D0A08 = 10.22:1 AAA
+     --warm-dim:    #BFB0A0 on #0D0A08 = 9.34:1  AAA
+     White on cobalt band #1A3AAA = 8.09:1 AAA
+  */
+
+  :root {
+    --black:        #0D0A08;
+    --black-warm:   #150E09;
+    --black-cool:   #0A0D1A;
+    --black-deep:   #080B14;
+    --cobalt-band:  #1A3AAA;
+    --cream:        #F2EDE6;
+    --fire-red:     #FF7055;
+    --ember:        #FF8C52;
+    --cobalt-text:  #9BB8FF;
+    --warm-mid:     #C8B8A8;
+    --warm-dim:     #BFB0A0;
+    --white:        #FFFFFF;
+    --border-fire:  rgba(255,112,85,0.2);
+    --border-cobalt: rgba(155,184,255,0.2);
+    --font-serif:   'Cormorant Garamond', Georgia, serif;
+    --font-sans:    'Inter', system-ui, sans-serif;
+    --space-xs:     0.5rem;
+    --space-sm:     1rem;
+    --space-md:     2rem;
+    --space-lg:     4rem;
+    --space-xl:     6rem;
+  }
+
+  /* === BASE === */
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  /* === LAYOUT === */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 3rem);
+  }
+
+  /* === NAV === */
+  .nav {
+    border-bottom: 0.5px solid var(--border-fire);
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
+    position: sticky;
+    top: 0;
+    background: var(--black);
+    z-index: 100;
+  }
+
+  .nav__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav__logo-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .nav__logo-accent { color: var(--fire-red); font-style: italic; }
+
+  .nav__logo-sub {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+    margin-top: 2px;
+  }
+
+  .nav__links {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  .nav__links a {
+    font-size: clamp(0.65rem, 1.3vw, 0.75rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav__links a:hover { color: var(--cream); }
+
+  .nav__cta {
+    font-size: clamp(0.65rem, 1.3vw, 0.75rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fire-red);
+    border: 0.5px solid var(--fire-red);
+    padding: clamp(6px, 1.2vw, 10px) clamp(14px, 2.5vw, 22px);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav__cta:hover { background: var(--fire-red); color: var(--black); }
+
+  .nav__mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--cream);
+  }
+
+  .nav__mobile-toggle span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--cream);
+    margin: 5px 0;
+    transition: transform 0.2s;
+  }
+
+  /* === HERO === */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: clamp(480px, 70vh, 680px);
+    border-bottom: 0.5px solid var(--border-fire);
+  }
+
+  .hero__left {
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 0.5px solid var(--border-fire);
+  }
+
+  .eyebrow {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--fire-red);
+    margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .hero__h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6.5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero__h1 em {
+    font-style: italic;
+    color: var(--ember);
+  }
+
+  .hero__rule {
+    width: 48px;
+    height: 1px;
+    background: var(--fire-red);
+    margin: clamp(1rem, 2.5vw, 1.5rem) 0;
+  }
+
+  .hero__sub {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    line-height: 1.75;
+    color: var(--warm-mid);
+    max-width: 400px;
+    margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
+  }
+
+  .hero__sub strong { color: var(--cream); font-weight: 400; }
+
+  .hero__btns {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--fire-red);
+    color: var(--black);
+    font-size: clamp(0.65rem, 1.3vw, 0.75rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: clamp(12px, 2vw, 16px) clamp(22px, 3.5vw, 32px);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--ember); }
+
+  .btn-ghost {
+    font-size: clamp(0.65rem, 1.3vw, 0.75rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cobalt-text);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--cobalt-text);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--cream); border-color: var(--cream); }
+
+  .hero__right {
+    background: var(--black-warm);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .hero__img-placeholder {
+    width: 100%;
+    flex: 1;
+    min-height: 260px;
+    background: #1E1208;
+    border: 0.5px solid var(--border-fire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .placeholder-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fire-red);
+    opacity: 0.7;
+  }
+
+  .placeholder-sub {
+    font-size: 0.65rem;
+    color: var(--warm-dim);
+    opacity: 0.5;
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero__pull {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--warm-mid);
+    line-height: 1.5;
+  }
+
+  .hero__pull span { color: var(--ember); }
+
+  /* === MARQUEE === */
+  .marquee-bar {
+    background: var(--fire-red);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    gap: 3rem;
+    animation: marquee 28s linear infinite;
+  }
+
+  .marquee-track:hover { animation-play-state: paused; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    font-weight: 500;
+  }
+
+  .marquee-dot { color: var(--black); opacity: 0.4; }
+
+  /* === MANIFESTO === */
+  .manifesto {
+    background: var(--black-cool);
+    border-left: 3px solid var(--cobalt-text);
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .manifesto__body {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.65;
+    color: var(--warm-mid);
+    max-width: 700px;
+  }
+
+  .manifesto__body strong {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--cream);
+  }
+
+  .manifesto__accent { color: var(--cobalt-text); font-style: normal; }
+
+  .manifesto__attr {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cobalt-text);
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  /* === SERVICES === */
+  .services {
+    background: var(--black);
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .section-label {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--fire-red);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  .section-h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-h2 em { font-style: italic; color: var(--ember); }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border-fire);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .service-card {
+    background: var(--black);
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  .service-num {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--cobalt-text);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  }
+
+  .service-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    line-height: 1.75;
+    color: var(--warm-dim);
+  }
+
+  .service-link {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fire-red);
+    margin-top: clamp(1rem, 2vw, 1.5rem);
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--fire-red);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .service-link:hover { color: var(--ember); border-color: var(--ember); }
+
+  /* === COBALT BAND === */
+  .cobalt-band {
+    background: var(--cobalt-band);
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .cobalt-band__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .cobalt-stat {
+    background: var(--cobalt-band);
+    padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+  }
+
+  .cobalt-stat__num {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .cobalt-stat__label {
+    font-size: clamp(0.6rem, 1.1vw, 0.7rem);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #F0F4FF;
+    margin-top: 8px;
+  }
+
+  /* === PROOF === */
+  .proof {
+    background: var(--black-deep);
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .proof__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .proof-card {
+    border: 0.5px solid var(--border-cobalt);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    position: relative;
+  }
+
+  .proof-card::before {
+    content: '\201C';
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 8vw, 6rem);
+    color: var(--cobalt-text);
+    opacity: 0.12;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    line-height: 1;
+  }
+
+  .proof-quote {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--warm-mid);
+    line-height: 1.65;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .proof-client {
+    font-size: clamp(0.6rem, 1.1vw, 0.68rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fire-red);
+  }
+
+  .proof-type {
+    font-size: clamp(0.6rem, 1.1vw, 0.65rem);
+    color: var(--warm-dim);
+    opacity: 0.5;
+    margin-top: 4px;
+    letter-spacing: 0.08em;
+  }
+
+  /* === FOR WHO === */
+  .for-who {
+    background: var(--black);
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .for-who__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .for-label {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fire-red);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  .not-label {
+    font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cobalt-text);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  .for-list li {
+    font-size: clamp(0.85rem, 1.7vw, 1.05rem);
+    color: var(--warm-mid);
+    line-height: 1.7;
+    padding: clamp(0.6rem, 1.2vw, 0.85rem) 0;
+    border-bottom: 0.5px solid var(--border-fire);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .for-list li::before {
+    content: "—";
+    color: var(--fire-red);
+    flex-shrink: 0;
+    margin-top: 0.05em;
+  }
+
+  .not-list li {
+    color: var(--warm-dim);
+    opacity: 0.6;
+    border-bottom-color: var(--border-cobalt);
+  }
+
+  .not-list li::before {
+    content: "×";
+    color: var(--cobalt-text);
+    opacity: 0.5;
+  }
+
+  /* === CTA === */
+  .cta-section {
+    background: var(--black-cool);
+    border-top: 0.5px solid var(--border-cobalt);
+    padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 5vw, 3rem);
+    text-align: center;
+  }
+
+  .cta-h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+    line-height: 1.2;
+  }
+
+  .cta-h2 em { font-style: normal; color: var(--ember); }
+
+  .cta-sub {
+    font-size: clamp(0.85rem, 1.7vw, 1.05rem);
+    color: var(--warm-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-scarcity {
+    font-size: clamp(0.6rem, 1.2vw, 0.72rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cobalt-text);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--fire-red);
+    color: var(--black);
+    font-size: clamp(0.68rem, 1.3vw, 0.78rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: clamp(14px, 2.5vw, 18px) clamp(32px, 6vw, 56px);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .cta-btn:hover { background: var(--ember); }
+
+  /* === FOOTER === */
+  .footer {
+    background: #060809;
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 5vw, 3rem);
+    border-top: 0.5px solid var(--border-cobalt);
+  }
+
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer__logo {
+    font-family: var(--font-serif);
+    font-size: clamp(0.85rem, 1.7vw, 1rem);
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+    opacity: 0.5;
+  }
+
+  .footer__links {
+    display: flex;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    flex-wrap: wrap;
+  }
+
+  .footer__links a {
+    font-size: clamp(0.6rem, 1.1vw, 0.68rem);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+    opacity: 0.45;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .footer__links a:hover { opacity: 0.85; }
+
+  .footer__copy {
+    font-size: clamp(0.58rem, 1vw, 0.65rem);
+    color: var(--warm-dim);
+    opacity: 0.25;
+    letter-spacing: 0.08em;
+  }
+
+  /* === MOBILE === */
+  @media (max-width: 768px) {
+
+    .nav__links { display: none; }
+    .nav__cta { display: none; }
+    .nav__mobile-toggle { display: block; }
+
+    .nav__links.is-open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--black);
+      border-bottom: 0.5px solid var(--border-fire);
+      padding: 1.25rem clamp(1.25rem, 5vw, 3rem);
+      gap: 1rem;
+      z-index: 99;
+    }
+
+    .nav__links.is-open + .nav__cta {
+      display: block;
+      margin: 0 clamp(1.25rem, 5vw, 3rem) 1rem;
+      text-align: center;
+    }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero__left { border-right: none; border-bottom: 0.5px solid var(--border-fire); }
+    .hero__right { min-height: 320px; }
+    .hero__img-placeholder { flex: none; height: 240px; }
+
+    .services__grid { grid-template-columns: 1fr; }
+
+    .cobalt-band__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .proof__grid { grid-template-columns: 1fr; }
+
+    .for-who__grid { grid-template-columns: 1fr; }
+
+    .footer__inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  }
+
+  @media (max-width: 480px) {
+    .cobalt-band__grid { grid-template-columns: 1fr 1fr; }
+    .hero__h1 { font-size: 2.6rem; }
+  }
+
+  /* === FOCUS STYLES (accessibility) === */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--cobalt-text);
+    outline-offset: 3px;
+  }
+
+  /* === REDUCED MOTION === */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" aria-label="Fireheart homepage">
+          <div class="nav__logo-name">Fireheart <span class="nav__logo-accent">—</span></div>
+          <div class="nav__logo-sub">Copywriting &amp; Marketing Strategy</div>
+        </a>
+        <ul class="nav__links" id="nav-links" role="list">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <a href="#contact" class="nav__cta">Work with me</a>
+        <button class="nav__mobile-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__left">
+      <p class="eyebrow">Copywriting &amp; Marketing Strategy — Ireland</p>
+      <h1 class="hero__h1" id="hero-heading">
+        Your message<br>
+        is your most<br>
+        <em>powerful</em><br>
+        asset.
+      </h1>
+      <div class="hero__rule" role="presentation"></div>
+      <p class="hero__sub">
+        For <strong>bold female founders</strong> who are done with beige messaging and ready for copy that earns a hell yes — without dancing for it.
+      </p>
+      <div class="hero__btns">
+        <a href="#contact" class="btn-primary">Ignite your copy</a>
+        <a href="#work" class="btn-ghost">See the work</a>
+      </div>
+    </div>
+    <div class="hero__right" aria-hidden="true">
+      <div class="hero__img-placeholder">
+        <span class="placeholder-label">Shelley's portrait</span>
+        <span class="placeholder-sub">Authority portrait — dark background, editorial direction</span>
+      </div>
+      <p class="hero__pull">
+        "Your brand has flare —<br>
+        let's make sure the <span>spark catches.</span>"
+      </p>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Brand Voice Strategy</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Website Copy</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Email Sequences</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Launch Copy</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Mission-Driven Brands</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Sales Pages</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Nonprofit Campaigns</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Content Strategy</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Brand Voice Strategy</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Website Copy</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Email Sequences</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Launch Copy</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Mission-Driven Brands</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Sales Pages</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Nonprofit Campaigns</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Content Strategy</span>
+      <span class="marquee-dot">·</span>
+    </div>
+  </div>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto" aria-labelledby="manifesto-heading">
+    <div class="container">
+      <h2 class="sr-only" id="manifesto-heading">The Fireheart philosophy</h2>
+      <p class="manifesto__body">
+        Most brands don't have a visibility problem.<br>
+        They have a <strong>message problem.</strong><br><br>
+        You're not forgettable because you're small.<br>
+        You're forgettable because your words<br>
+        sound like <strong>everyone else's words.</strong><br><br>
+        That ends <span class="manifesto__accent">here.</span>
+      </p>
+      <p class="manifesto__attr">— The Fireheart philosophy</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <p class="section-label">What we do together</p>
+      <h2 class="section-h2" id="services-heading">
+        Strategy that <em>burns</em><br>through the noise
+      </h2>
+      <div class="services__grid">
+        <article class="service-card">
+          <div class="service-num" aria-hidden="true">01</div>
+          <h3 class="service-name">Brand Voice &amp; Messaging</h3>
+          <p class="service-desc">Find the words that are unmistakably yours. We build the strategic foundation your entire brand speaks from — consistently, compellingly, and without apology.</p>
+          <a href="#contact" class="service-link">Explore &#8594;</a>
+        </article>
+        <article class="service-card">
+          <div class="service-num" aria-hidden="true">02</div>
+          <h3 class="service-name">Website &amp; Sales Copy</h3>
+          <p class="service-desc">Every word earns its place. Copy that converts because it connects — not because it tricks. Built for founders who want to sell without feeling like they're selling.</p>
+          <a href="#contact" class="service-link">Explore &#8594;</a>
+        </article>
+        <article class="service-card">
+          <div class="service-num" aria-hidden="true">03</div>
+          <h3 class="service-name">Launch &amp; Campaign Strategy</h3>
+          <p class="service-desc">Full-funnel thinking with copy that holds its nerve from first touch to final yes. For founders ready to move — with a message that moves people with them.</p>
+          <a href="#contact" class="service-link">Explore &#8594;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COBALT STATS BAND -->
+  <section class="cobalt-band" aria-label="About Fireheart at a glance">
+    <div class="cobalt-band__grid">
+      <div class="cobalt-stat">
+        <div class="cobalt-stat__num">8+</div>
+        <div class="cobalt-stat__label">Years in the craft</div>
+      </div>
+      <div class="cobalt-stat">
+        <div class="cobalt-stat__num">2</div>
+        <div class="cobalt-stat__label">Continents. One voice.</div>
+      </div>
+      <div class="cobalt-stat">
+        <div class="cobalt-stat__num">Small</div>
+        <div class="cobalt-stat__label">Client roster. By design.</div>
+      </div>
+      <div class="cobalt-stat">
+        <div class="cobalt-stat__num">0</div>
+        <div class="cobalt-stat__label">Beige messaging. Ever.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof" id="work" aria-labelledby="proof-heading">
+    <div class="container">
+      <p class="section-label">Proof of fire</p>
+      <h2 class="section-h2" id="proof-heading">
+        Brands that said<br><em>hell yes</em>
+      </h2>
+      <div class="proof__grid">
+        <blockquote class="proof-card">
+          <p class="proof-quote">"Shelley found the words we'd been reaching for for two years. Our donors finally understand exactly why this matters."</p>
+          <footer>
+            <cite class="proof-client">Animal Rescue Foundation</cite>
+            <p class="proof-type">Nonprofit campaign copy</p>
+          </footer>
+        </blockquote>
+        <blockquote class="proof-card">
+          <p class="proof-quote">"I stopped apologising for my prices the week we launched the new website. The copy did something I couldn't do for myself."</p>
+          <footer>
+            <cite class="proof-client">Female Founder — Brand Consultancy</cite>
+            <p class="proof-type">Website &amp; brand voice</p>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHO -->
+  <section class="for-who" aria-labelledby="forwho-heading">
+    <div class="container">
+      <p class="section-label">This work is rare — and specific</p>
+      <h2 class="section-h2" id="forwho-heading">
+        You found<br><em>your person.</em>
+      </h2>
+      <div class="for-who__grid">
+        <div>
+          <p class="for-label">This is for you if —</p>
+          <ul class="for-list" role="list">
+            <li>Your mission is bigger than your marketing</li>
+            <li>You believe in what you sell with your whole chest</li>
+            <li>You want to matter, not just convert</li>
+            <li>You're done with generic and ready for precise</li>
+            <li>You'd rather earn trust than buy attention</li>
+          </ul>
+        </div>
+        <div>
+          <p class="not-label">Not the right fit if —</p>
+          <ul class="for-list not-list" role="list">
+            <li>You want viral over valuable</li>
+            <li>You're not ready to take a stance</li>
+            <li>You need it done in 48 hours</li>
+            <li>You're looking for a yes-person</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact" aria-labelledby="cta-heading">
+    <div class="container">
+      <h2 class="cta-h2" id="cta-heading">
+        Ready to set fire to your<br><em>beige</em> messaging?
+      </h2>
+      <p class="cta-sub">Shelley works with a small number of brands at a time.</p>
+      <p class="cta-scarcity">Currently accepting new clients for Q3 2026</p>
+      <a href="mailto:hello@fireheart.co" class="cta-btn">Let's talk</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__logo">Fireheart — Copywriting &amp; Strategy</div>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="https://linkedin.com" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://instagram.com" rel="noopener noreferrer">Instagram</a>
+        <a href="/">fireheart.co</a>
+      </nav>
+      <p class="footer__copy">&copy; 2026 Shelley Sunjka</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav__mobile-toggle');
+  const links = document.querySelector('.nav__links');
+  const cta = document.querySelector('.nav__cta');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    if (cta) cta.style.display = isOpen ? 'block' : '';
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        if (links.classList.contains('is-open')) {
+          links.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
