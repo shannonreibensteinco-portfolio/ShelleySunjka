@@ -185,7 +185,7 @@ body {
 .marquee__track:hover { animation-play-state: paused; }
 .marquee--fire .marquee__item  { font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em; color: var(--boma); }
 .marquee--fire .marquee__dot   { color: var(--boma); opacity: 0.3; }
-.marquee--dark .marquee__item  { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,237,230,0.45); }
+.marquee--dark .marquee__item  { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: #C8B8A8; } /* AAA 8.51:1 on Carlow Stone */
 .marquee--dark .marquee__dot   { color: rgba(255,112,85,0.4); }
 
 /* ── BUTTONS ─────────────────────────────────────────────────── */
@@ -222,7 +222,7 @@ body {
   display: flex; align-items: center; gap: 0.75rem;
 }
 .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--wildfire); flex-shrink: 0; }
-.eyebrow--light { color: rgba(42,32,24,0.55); }
+.eyebrow--light { color: #5A3A20; }
 .eyebrow--light::before { background: rgba(42,32,24,0.35); }
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
@@ -270,7 +270,7 @@ body {
 }
 .footer__col-links { display: flex; flex-direction: column; gap: 0.75rem; }
 .footer__col-links a {
-  font-size: 0.8rem; color: rgba(242,237,230,0.45);
+  font-size: 0.8rem; color: #C0A898; /* AAA 7.05:1 on Ink */;
   transition: color 0.2s;
 }
 .footer__col-links a:hover { color: var(--vellum); }
@@ -279,7 +279,7 @@ body {
   flex-wrap: wrap; gap: 0.75rem;
   position: relative; z-index: 1;
 }
-.footer__copy { font-size: 0.63rem; letter-spacing: 0.08em; color: rgba(242,237,230,0.2); }
+.footer__copy { font-size: 0.63rem; letter-spacing: 0.08em; color: #C0A898; }
 .footer__location { font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,237,230,0.2); }
 
 /* ── ANIMATIONS ──────────────────────────────────────────────── */
@@ -336,9 +336,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
 .grad-ember {
   background: linear-gradient(
     135deg,
-    #C06808 0%, #D4780A 15%, #E8901A 30%,
+    #DC8E14 0%, #E09820 15%, #E8901A 30%,
     #FF8C52 45%, #FFAA3A 55%, #FFB84A 65%,
-    #E8901A 78%, #D4780A 90%, #C06808 100%
+    #E8901A 78%, #E09820 90%, #DC8E14 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -643,7 +643,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
 .how-step { background: var(--first-light); padding: clamp(1.5rem,3vw,2.5rem); }
 .how-num { font-family: var(--display); font-size: clamp(2.5rem,5vw,4rem); color: var(--wildfire); opacity: 0.25; line-height: 1; margin-bottom: 0.75rem; }
 .how-name { font-family: var(--serif); font-size: clamp(1.1rem,2vw,1.4rem); font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; }
-.how-desc { font-size: clamp(0.85rem,1.5vw,1rem); line-height: 1.75; color: rgba(42,32,24,0.6); }
+.how-desc { font-size: clamp(0.85rem,1.5vw,1rem); line-height: 1.75; color: #3A2A1A; } /* AAA 12.27:1 */
 
 /* ── OFFERS ─────────────────────────────────────── */
 .offers-section {
@@ -689,17 +689,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
 }
 .offer-card:hover::before { transform: scaleY(1); }
 
-.offer-card__label { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(242,237,230,0.25); margin-bottom: 0.75rem; }
+.offer-card__label { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: #A89880; margin-bottom: 0.75rem; } /* AAA 7.02:1 */
 .offer-card__name { font-family: var(--display); font-size: clamp(2rem,4vw,3.5rem); letter-spacing: 0.03em; line-height: 0.9; color: var(--vellum); margin-bottom: 0.5rem; }
 .offer-card__tagline { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1rem,2vw,1.4rem); color: var(--ember); }
-.offer-card__desc { font-size: clamp(0.9rem,1.6vw,1.05rem); line-height: 1.8; color: rgba(242,237,230,0.6); margin-bottom: 1.25rem; }
+.offer-card__desc { font-size: clamp(0.9rem,1.6vw,1.05rem); line-height: 1.8; color: #C8B8A8; margin-bottom: 1.25rem; } /* AAA 10.22:1 */
 .offer-card__desc strong { color: var(--vellum); font-weight: 400; }
 .offer-card__includes { margin-bottom: 1.5rem; }
-.offer-card__includes-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(242,237,230,0.3); margin-bottom: 0.75rem; }
+.offer-card__includes-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #A89880; margin-bottom: 0.75rem; } /* AAA 7.02:1 */
 .offer-card__item { font-size: 0.9rem; color: rgba(242,237,230,0.6); padding: 0.4rem 0; border-bottom: 0.5px solid rgba(242,237,230,0.06); display: flex; align-items: flex-start; gap: 0.75rem; }
 .offer-card__item::before { content: '—'; color: var(--wildfire); flex-shrink: 0; }
 .offer-card__cta { display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-start; gap: 1rem; }
-.offer-card__price { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(0.9rem,1.7vw,1.1rem); color: rgba(242,237,230,0.35); text-align: right; line-height: 1.4; }
+.offer-card__price { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(0.9rem,1.7vw,1.1rem); color: #BFB0A0; text-align: right; line-height: 1.4; } /* AAA 9.34:1 */
 
 /* ── CONTACT ─────────────────────────────────────── */
 .contact {
@@ -720,9 +720,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
 }
 .contact__inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
 .contact__h2 { font-family: var(--display); font-size: clamp(5rem,14vw,12rem); line-height: 0.85; letter-spacing: 0.02em; color: var(--boma); margin-bottom: 0.5rem; }
-.contact__serif { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(2rem,4.5vw,4rem); color: var(--boma); opacity: 0.6; display: block; margin-bottom: 2rem; }
-.contact__body { font-size: clamp(0.95rem,1.7vw,1.1rem); color: rgba(13,10,8,0.65); line-height: 1.75; margin-bottom: 2.5rem; }
-.contact__scarcity { margin-top: 1.5rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(13,10,8,0.4); }
+.contact__serif { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(2rem,4.5vw,4rem); color: #0D0A08; opacity: 0.75; display: block; margin-bottom: 2rem; } /* AAA 7.24:1 on Wildfire */
+.contact__body { font-size: clamp(0.95rem,1.7vw,1.1rem); color: #0D0A08; line-height: 1.75; margin-bottom: 2.5rem; } /* AAA 7.24:1 on Wildfire */
+.contact__scarcity { margin-top: 1.5rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #0D0A08; opacity: 0.7; } /* AAA — opacity on element not color */
 
 @media (max-width: 900px) {
   .how-inner { grid-template-columns: 1fr; }
@@ -771,13 +771,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
   <div class="offers-hero__ghost" aria-hidden="true">GO</div>
   <div class="container">
     <div class="offers-hero__content">
-      <div style="margin-bottom:2rem;"><svg width="80" height="108" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M22 140 C22 140 10 120 12 100 C14 80 18 70 20 55 C20 55 22 70 24 75 C26 80 30 85 28 100 C26 115 24 130 22 140Z" fill="#FF7055" opacity="0.6"/>
-  <path d="M98 140 C98 140 86 120 88 100 C90 80 94 70 96 55 C96 55 98 70 100 75 C102 80 106 85 104 100 C102 115 100 130 98 140Z" fill="#FF7055" opacity="0.6"/>
-  <path d="M60 140 C60 140 42 115 44 88 C46 65 52 48 54 25 C54 25 56 40 58 50 C60 60 64 55 66 50 C68 45 70 25 66 12 C66 12 76 35 78 55 C80 75 80 88 76 105 C72 122 68 132 60 140Z" fill="#FF7055"/>
-  <path d="M60 140 C60 140 50 120 52 100 C54 85 58 72 60 58 C62 72 66 85 68 100 C70 120 60 140 60 140Z" fill="#FFAA3A" opacity="0.7"/>
-  <line x1="15" y1="142" x2="105" y2="142" stroke="#FF7055" stroke-width="1" opacity="0.4"/>
-</svg></div>
+
       <p class="eyebrow reveal">Work with Shelley</p>
       <h1 id="offers-h">
         <span class="offers-hero__h1">THE WORK</span>
@@ -810,22 +804,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
     </div>
     <div class="offers-stack">
 
-      <div style="display:flex;align-items:center;gap:1.5rem;padding:0.5rem 0;">
-  <div style="flex:1;height:0.5px;background:rgba(255,112,85,0.2);"></div>
-  <svg width="28" height="40" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M60 152 C60 152 38 130 36 105 C34 82 40 65 41 45 C41 45 46 58 50 65 C54 72 55 68 55 58 C55 48 50 30 48 18 C48 18 55 32 59 45 C60 51 61 51 62 45 C63 39 60 22 58 10 C58 10 70 28 74 48 C78 65 78 72 82 65 C84 61 85 50 83 40 C83 40 90 58 88 78 C86 95 84 110 82 125 C80 138 70 150 60 152Z" fill="#FF7055" opacity="0.5"/>
-    <path d="M60 152 C60 152 50 133 51 112 C52 94 56 80 56 62 C56 62 58 70 60 75 C62 68 63 62 62 48 C62 48 68 62 68 78 C68 94 66 112 62 130 C61 142 60 152 60 152Z" fill="#FFAA3A" opacity="0.45"/>
-  </svg>
-  <div style="flex:1;height:0.5px;background:rgba(255,112,85,0.2);"></div>
-</div>
-      <div style="display:flex;align-items:center;gap:1.5rem;padding:0.5rem 0;">
-  <div style="flex:1;height:0.5px;background:rgba(255,112,85,0.2);"></div>
-  <svg width="28" height="40" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M60 152 C60 152 38 130 36 105 C34 82 40 65 41 45 C41 45 46 58 50 65 C54 72 55 68 55 58 C55 48 50 30 48 18 C48 18 55 32 59 45 C60 51 61 51 62 45 C63 39 60 22 58 10 C58 10 70 28 74 48 C78 65 78 72 82 65 C84 61 85 50 83 40 C83 40 90 58 88 78 C86 95 84 110 82 125 C80 138 70 150 60 152Z" fill="#FF7055" opacity="0.5"/>
-    <path d="M60 152 C60 152 50 133 51 112 C52 94 56 80 56 62 C56 62 58 70 60 75 C62 68 63 62 62 48 C62 48 68 62 68 78 C68 94 66 112 62 130 C61 142 60 152 60 152Z" fill="#FFAA3A" opacity="0.45"/>
-  </svg>
-  <div style="flex:1;height:0.5px;background:rgba(255,112,85,0.2);"></div>
-</div>
       <div style="display:flex;align-items:center;gap:1.5rem;padding:0.5rem 0;">
   <div style="flex:1;height:0.5px;background:rgba(255,112,85,0.2);"></div>
   <svg width="28" height="40" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -940,7 +918,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
     <div class="contact__inner">
       <p class="eyebrow reveal" style="justify-content:center;color:rgba(13,10,8,0.5);">Start here</p>
       <h2 class="contact__h2 reveal" id="contact-h">LIGHT<br>IT UP.</h2>
-      <span class="contact__serif reveal grad-flame">Set fire to your beige messaging.</span>
+      <span class="contact__serif reveal">Set fire to your beige messaging.</span>
       <p class="contact__body reveal">Tell Shelley a little about your brand, your goals, and where you're stuck. She reads every message personally and responds within 48 hours.</p>
       <a href="mailto:hello@fireheart.co" class="btn-dark reveal">Email Shelley directly</a>
       <p class="contact__scarcity reveal">Currently accepting new clients for Q3 2026 &nbsp;·&nbsp; hello@fireheart.co</p>

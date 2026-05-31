@@ -185,7 +185,7 @@ body {
 .marquee__track:hover { animation-play-state: paused; }
 .marquee--fire .marquee__item  { font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em; color: var(--boma); }
 .marquee--fire .marquee__dot   { color: var(--boma); opacity: 0.3; }
-.marquee--dark .marquee__item  { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,237,230,0.45); }
+.marquee--dark .marquee__item  { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: #C8B8A8; } /* AAA 8.51:1 on Carlow Stone */
 .marquee--dark .marquee__dot   { color: rgba(255,112,85,0.4); }
 
 /* ── BUTTONS ─────────────────────────────────────────────────── */
@@ -222,7 +222,7 @@ body {
   display: flex; align-items: center; gap: 0.75rem;
 }
 .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--wildfire); flex-shrink: 0; }
-.eyebrow--light { color: rgba(42,32,24,0.55); }
+.eyebrow--light { color: #5A3A20; }
 .eyebrow--light::before { background: rgba(42,32,24,0.35); }
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
@@ -270,7 +270,7 @@ body {
 }
 .footer__col-links { display: flex; flex-direction: column; gap: 0.75rem; }
 .footer__col-links a {
-  font-size: 0.8rem; color: rgba(242,237,230,0.45);
+  font-size: 0.8rem; color: #C0A898; /* AAA 7.05:1 on Ink */;
   transition: color 0.2s;
 }
 .footer__col-links a:hover { color: var(--vellum); }
@@ -279,7 +279,7 @@ body {
   flex-wrap: wrap; gap: 0.75rem;
   position: relative; z-index: 1;
 }
-.footer__copy { font-size: 0.63rem; letter-spacing: 0.08em; color: rgba(242,237,230,0.2); }
+.footer__copy { font-size: 0.63rem; letter-spacing: 0.08em; color: #C0A898; }
 .footer__location { font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,237,230,0.2); }
 
 /* ── ANIMATIONS ──────────────────────────────────────────────── */
@@ -336,9 +336,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline
 .grad-ember {
   background: linear-gradient(
     135deg,
-    #C06808 0%, #D4780A 15%, #E8901A 30%,
+    #DC8E14 0%, #E09820 15%, #E8901A 30%,
     #FF8C52 45%, #FFAA3A 55%, #FFB84A 65%,
-    #E8901A 78%, #D4780A 90%, #C06808 100%
+    #E8901A 78%, #E09820 90%, #DC8E14 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
