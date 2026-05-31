@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Shelley — Fireheart Copywriting & Marketing Strategy</title>
+<style>/* ═══════════════════════════════════════════════════════════════
+   FIREHEART — SHARED DESIGN SYSTEM
+   Bespoke luxury texture with bold fire energy
+═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+:root {
+  /* Palette */
+  --boma:        #0D0A08;
+  --karoo:       #0A0D1A;
+  --carlow:      #1C1F2A;
+  --vellum:      #F2EDE6;
+  --first-light: #FBF0E8;
+  --haze:        #EBF0FA;
+  --bone:        #FAF8F5;
+  --wildfire:    #FF7055;
+  --ember:       #FF8C52;
+  --gold:        #FFAA3A;
+  --welder:      #1A3AAA;
+  --forge:       #9BB8FF;
+  --ash:         #C4D5FF;
+  /* Warm neutrals */
+  --parchment:   #EDE4D4;
+  --aged:        #D4C8B0;
+  --ink:         #2A2018;
+
+  /* Type */
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --display: 'Bebas Neue', Impact, sans-serif;
+  --sans:    'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--boma);
+  color: var(--vellum);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── TEXTURE SYSTEM ──────────────────────────────────────────── */
+
+/* SVG grain filter — reusable */
+.noise-filter { position: fixed; width: 0; height: 0; pointer-events: none; }
+
+/* Base grain overlay — every dark section gets this */
+.grain::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.055'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Linen texture — warm sections */
+.linen::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='6' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Halftone dot pattern */
+.halftone::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,112,85,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Cross-hatch pattern */
+.crosshatch::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,112,85,0.04) 0, rgba(255,112,85,0.04) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(-45deg, rgba(255,112,85,0.04) 0, rgba(255,112,85,0.04) 1px, transparent 0, transparent 50%);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Diagonal stripe — cobalt sections */
+.stripe::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 8px,
+    rgba(155,184,255,0.04) 8px,
+    rgba(155,184,255,0.04) 9px
+  );
+  pointer-events: none;
+}
+
+/* Torn paper edge top */
+.torn-top::before {
+  content: '';
+  position: absolute; top: -1px; left: 0; right: 0; z-index: 2;
+  height: 32px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 32' preserveAspectRatio='none'%3E%3Cpath d='M0,32 C120,8 240,28 360,14 C480,0 600,24 720,12 C840,0 960,26 1080,16 C1200,6 1320,22 1440,10 L1440,0 L0,0 Z' fill='%23F2EDE6'/%3E%3C/svg%3E") center/cover no-repeat;
+  pointer-events: none;
+}
+
+.torn-top-dark::before {
+  content: '';
+  position: absolute; top: -1px; left: 0; right: 0; z-index: 2;
+  height: 28px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 28' preserveAspectRatio='none'%3E%3Cpath d='M0,28 C180,6 360,24 540,12 C720,0 900,22 1080,14 C1260,6 1380,20 1440,8 L1440,0 L0,0 Z' fill='%230D0A08'/%3E%3C/svg%3E") center/cover no-repeat;
+  pointer-events: none;
+}
+
+/* Aged paper section bg */
+.aged-paper {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.9 0.1 0 0 0.05 0.08 0.85 0.05 0 0.04 0.02 0.08 0.8 0 0.03 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23p)' opacity='1'/%3E%3C/svg%3E"),
+    var(--parchment);
+  background-blend-mode: multiply, normal;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────────────── */
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 4rem); }
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: clamp(0.875rem, 1.8vw, 1.1rem) 0;
+  transition: background 0.4s, border-color 0.4s;
+}
+.nav.scrolled {
+  background: rgba(13,10,8,0.95);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 0.5px solid rgba(255,112,85,0.18);
+}
+.nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.nav__logo {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  letter-spacing: 0.06em;
+  color: var(--vellum);
+}
+.nav__logo b { color: var(--wildfire); }
+.nav__links { display: flex; gap: clamp(1.5rem, 2.8vw, 2.5rem); align-items: center; }
+.nav__links a {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(242,237,230,0.55);
+  transition: color 0.2s;
+  position: relative;
+}
+.nav__links a:hover,
+.nav__links a.active { color: var(--vellum); }
+.nav__links a.active::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1px; background: var(--wildfire);
+}
+.nav__cta {
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--boma); background: var(--wildfire);
+  padding: 9px 22px; font-weight: 500;
+  transition: background 0.2s;
+}
+.nav__cta:hover { background: var(--ember); }
+.nav__toggle { display: none; background: none; border: none; cursor: pointer; color: var(--vellum); padding: 4px; }
+
+/* ── MARQUEE ─────────────────────────────────────────────────── */
+.marquee { overflow: hidden; padding: 13px 0; }
+.marquee--fire { background: var(--wildfire); }
+.marquee--dark { background: var(--carlow); border-top: 0.5px solid rgba(255,112,85,0.15); border-bottom: 0.5px solid rgba(255,112,85,0.15); }
+.marquee__track { display: inline-flex; gap: 3rem; white-space: nowrap; animation: marqueeScroll 32s linear infinite; }
+.marquee__track:hover { animation-play-state: paused; }
+.marquee--fire .marquee__item  { font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em; color: var(--boma); }
+.marquee--fire .marquee__dot   { color: var(--boma); opacity: 0.3; }
+.marquee--dark .marquee__item  { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,237,230,0.45); }
+.marquee--dark .marquee__dot   { color: rgba(255,112,85,0.4); }
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn-fire {
+  display: inline-block; background: var(--wildfire); color: var(--boma);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; padding: 15px 36px;
+  transition: background 0.2s, transform 0.15s;
+  position: relative; overflow: hidden;
+}
+.btn-fire::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0; transition: opacity 0.2s;
+}
+.btn-fire:hover { background: var(--ember); transform: translateY(-2px); }
+.btn-fire:hover::after { opacity: 1; }
+
+.btn-outline {
+  display: inline-block; border: 1px solid var(--wildfire); color: var(--wildfire);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 14px 36px; transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--wildfire); color: var(--boma); transform: translateY(-2px); }
+
+.btn-dark {
+  display: inline-block; background: var(--boma); color: var(--vellum);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; padding: 15px 36px;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-dark:hover { background: var(--carlow); transform: translateY(-2px); }
+
+.btn-parchment {
+  display: inline-block; background: var(--boma); color: var(--vellum);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; padding: 15px 36px;
+  border: 1px solid rgba(42,32,24,0.35);
+  transition: all 0.2s;
+}
+.btn-parchment:hover { background: var(--ink); transform: translateY(-2px); }
+
+/* ── SECTION LABELS ──────────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--wildfire); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--wildfire); flex-shrink: 0; }
+.eyebrow--light { color: rgba(42,32,24,0.55); }
+.eyebrow--light::before { background: rgba(42,32,24,0.35); }
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+.footer {
+  background: var(--ink);
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  position: relative; overflow: hidden;
+}
+.footer::after {
+  content: 'FIREHEART';
+  font-family: var(--display);
+  font-size: 20vw; line-height: 1;
+  color: rgba(255,112,85,0.04);
+  position: absolute; bottom: -2vw; right: -1vw;
+  pointer-events: none; user-select: none;
+}
+.footer__top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  border-bottom: 0.5px solid rgba(242,237,230,0.08);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  position: relative; z-index: 1;
+}
+.footer__brand-name {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 0.06em; line-height: 1;
+  color: var(--vellum); margin-bottom: 1rem;
+}
+.footer__brand-name b { color: var(--wildfire); }
+.footer__tagline {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  color: rgba(242,237,230,0.45); margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.footer__email {
+  font-size: 0.7rem; letter-spacing: 0.14em;
+  color: var(--wildfire);
+}
+.footer__col-label {
+  font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(242,237,230,0.3); margin-bottom: 1.25rem;
+}
+.footer__col-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.footer__col-links a {
+  font-size: 0.8rem; color: rgba(242,237,230,0.45);
+  transition: color 0.2s;
+}
+.footer__col-links a:hover { color: var(--vellum); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.75rem;
+  position: relative; z-index: 1;
+}
+.footer__copy { font-size: 0.63rem; letter-spacing: 0.08em; color: rgba(242,237,230,0.2); }
+.footer__location { font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,237,230,0.2); }
+
+/* ── ANIMATIONS ──────────────────────────────────────────────── */
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+.reveal { opacity: 0; }
+.reveal.in-view { animation: fadeUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+/* ── MOBILE ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__cta   { display: none; }
+  .nav__toggle { display: block; }
+  .nav__links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 100%; left: 0; right: 0; background: rgba(13,10,8,0.98);
+    padding: 1.5rem clamp(1.25rem,5vw,4rem); gap: 1.25rem;
+    border-bottom: 0.5px solid rgba(255,112,85,0.15);
+  }
+  .footer__top { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, .reveal, [class*="hero__"] { animation: none !important; opacity: 1 !important; }
+  .marquee__track { animation: none; }
+}
+
+/* ── ACCESSIBILITY ───────────────────────────────────────────── */
+.sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline-offset: 3px; }
+</style>
+<style>
+/* ── ABOUT HERO ─────────────────────────────────── */
+.about-hero {
+  min-height: 90vh; padding-top: 72px;
+  background: var(--parchment);
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+/* Aged paper texture */
+.about-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23t)' opacity='0.12'/%3E%3C/svg%3E");
+}
+/* Diagonal ink lines */
+.about-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -70deg, transparent, transparent 30px,
+    rgba(42,32,24,0.025) 30px, rgba(42,32,24,0.025) 31px
+  );
+}
+.about-hero__content {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem,5vw,5rem); align-items: end;
+  padding: clamp(3rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);
+  position: relative; z-index: 1; width: 100%;
+}
+/* Left: giant name as display element */
+.about-hero__name-wrap { position: relative; }
+.about-hero__big-name {
+  font-family: var(--display);
+  font-size: clamp(4.5rem,12vw,10rem);
+  letter-spacing: 0.02em; line-height: 0.88;
+  color: var(--ink);
+}
+.about-hero__big-name-serif {
+  display: block;
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(2rem,5vw,4.5rem); line-height: 1;
+  color: var(--wildfire);
+}
+/* Origin tag */
+.about-hero__origin {
+  display: inline-block; margin-top: 1.5rem;
+  border: 1px solid rgba(42,32,24,0.25);
+  font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(42,32,24,0.55); padding: 5px 12px;
+}
+/* Right: opening statement */
+.about-hero__right { padding-left: clamp(1rem,3vw,2rem); border-left: 1px solid rgba(42,32,24,0.12); }
+.about-hero__role {
+  font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--wildfire); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.about-hero__role::before { content: ''; width: 20px; height: 1px; background: var(--wildfire); }
+.about-hero__statement {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.5rem,3vw,2.4rem); line-height: 1.45;
+  color: var(--ink); margin-bottom: 1.5rem;
+}
+.about-hero__statement em { font-style: italic; color: var(--wildfire); }
+.about-hero__body {
+  font-size: clamp(0.9rem,1.6vw,1.05rem); line-height: 1.8;
+  color: rgba(42,32,24,0.65); margin-bottom: 2rem;
+}
+/* Handwritten-feel detail */
+.about-hero__aside {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 0.85rem; color: rgba(42,32,24,0.45);
+  border-top: 0.5px solid rgba(42,32,24,0.15); padding-top: 1rem;
+}
+
+/* ── ORIGIN SECTION ─────────────────────────────── */
+.origin {
+  background: var(--boma); padding: clamp(4rem,10vw,8rem) 0;
+  position: relative; overflow: hidden;
+}
+.origin::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,112,85,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.origin__inner {
+  display: grid; grid-template-columns: 1fr 1.5fr;
+  gap: clamp(3rem,7vw,7rem); align-items: start;
+  position: relative; z-index: 1;
+}
+.origin__sidebar {}
+.origin__sidebar-label {
+  font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase;
+  color: rgba(242,237,230,0.25); margin-bottom: 1.25rem;
+}
+.origin__place {
+  font-family: var(--display);
+  font-size: clamp(2.5rem,5vw,4.5rem); line-height: 1; letter-spacing: 0.03em;
+  color: var(--vellum); margin-bottom: 0.25rem;
+}
+.origin__place-detail {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(1rem,2vw,1.4rem); color: rgba(242,237,230,0.4);
+  margin-bottom: 2.5rem;
+}
+.origin__place-divider { width: 32px; height: 1px; background: var(--wildfire); margin: 2rem 0; }
+.origin__main-h2 {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.8rem,3.5vw,3rem); line-height: 1.4; color: var(--vellum);
+  margin-bottom: 2rem;
+}
+.origin__main-h2 em { font-style: italic; color: var(--ember); }
+.origin__body {
+  font-size: clamp(0.95rem,1.7vw,1.1rem); line-height: 1.85;
+  color: rgba(242,237,230,0.6); margin-bottom: 1.5rem;
+}
+.origin__body strong { color: var(--vellum); font-weight: 400; }
+.origin__pull {
+  border-left: 2px solid var(--wildfire);
+  padding: 1rem 0 1rem 1.5rem; margin: 2.5rem 0;
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(1.1rem,2vw,1.4rem); color: var(--vellum); line-height: 1.55;
+}
+
+/* ── VALUES ─────────────────────────────────────── */
+.values {
+  padding: clamp(4rem,10vw,8rem) 0;
+  background: var(--first-light); position: relative; overflow: hidden;
+}
+.values::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.85' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.25'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.065'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.values__h2 {
+  font-family: var(--display);
+  font-size: clamp(3rem,7vw,6rem); letter-spacing: 0.03em; line-height: 0.9;
+  color: var(--ink); margin-bottom: clamp(3rem,6vw,5rem);
+}
+.values__h2 span {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(1.5rem,3vw,2.5rem); color: var(--wildfire);
+  display: block; margin-top: 0.25rem;
+}
+.values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(42,32,24,0.08); }
+.value-card { background: var(--first-light); padding: clamp(2rem,4vw,3rem); position: relative; }
+.value-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--wildfire); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s;
+}
+.value-card:hover::after { transform: scaleX(1); }
+.value-num { font-family: var(--display); font-size: clamp(3rem,5vw,4.5rem); color: var(--wildfire); opacity: 0.2; line-height: 1; margin-bottom: 0.75rem; }
+.value-name { font-family: var(--serif); font-size: clamp(1.2rem,2.2vw,1.6rem); font-weight: 400; color: var(--ink); margin-bottom: 0.75rem; }
+.value-desc { font-size: clamp(0.88rem,1.5vw,1rem); line-height: 1.75; color: rgba(42,32,24,0.6); }
+
+/* ── APPROACH ───────────────────────────────────── */
+.approach {
+  background: var(--karoo); padding: clamp(4rem,10vw,8rem) 0;
+  position: relative; overflow: hidden;
+}
+.approach::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg, transparent, transparent 10px,
+    rgba(155,184,255,0.03) 10px, rgba(155,184,255,0.03) 11px
+  );
+}
+.approach__inner { position: relative; z-index: 1; }
+.approach__h2 {
+  font-family: var(--display);
+  font-size: clamp(3rem,7vw,6rem); letter-spacing: 0.03em; line-height: 0.9;
+  color: var(--vellum); margin-bottom: clamp(3rem,6vw,5rem);
+}
+.approach__h2 span { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1.5rem,3vw,2.5rem); color: var(--ember); display: block; }
+.approach-steps { display: flex; flex-direction: column; gap: 1px; background: rgba(255,112,85,0.1); }
+.approach-step {
+  background: var(--karoo); padding: clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,3vw,2.5rem);
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 2rem; align-items: start;
+  transition: background 0.3s;
+}
+.approach-step:hover { background: #0E1028; }
+.approach-step__num {
+  font-family: var(--display);
+  font-size: clamp(2.5rem,4.5vw,4rem); color: var(--wildfire); opacity: 0.2; line-height: 1;
+  transition: opacity 0.3s;
+}
+.approach-step:hover .approach-step__num { opacity: 0.4; }
+.approach-step__name { font-family: var(--serif); font-size: clamp(1.2rem,2.2vw,1.6rem); font-weight: 400; color: var(--vellum); margin-bottom: 0.5rem; }
+.approach-step__desc { font-size: clamp(0.88rem,1.5vw,1rem); line-height: 1.75; color: rgba(242,237,230,0.5); }
+
+@media (max-width: 900px) {
+  .about-hero__content { grid-template-columns: 1fr; }
+  .about-hero__right { border-left: none; border-top: 1px solid rgba(42,32,24,0.12); padding-left: 0; padding-top: 2rem; }
+  .origin__inner { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .approach-step { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<!-- NAV SHARED -->
+<header>
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Fireheart home">FIRE<b>HEART</b></a>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="proof.html">Proof</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="offers.html">Offers</a></li>
+      </ul>
+      <a href="offers.html#contact" class="nav__cta">Work with me</a>
+      <button class="nav__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle menu">
+        <svg width="22" height="15" viewBox="0 0 22 15" fill="none">
+          <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="0" y1="7.5" x2="22" y2="7.5" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="0" y1="14" x2="22" y2="14" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<!-- ABOUT HERO -->
+<section class="about-hero" aria-labelledby="about-h">
+  <div class="container">
+    <div class="about-hero__content">
+      <div class="about-hero__name-wrap reveal">
+        <h1 class="about-hero__big-name" id="about-h">
+          SHELLEY
+          <span class="about-hero__big-name-serif">Sunjka.</span>
+        </h1>
+        <span class="about-hero__origin">South Africa · Ireland · Worldwide</span>
+      </div>
+      <div class="about-hero__right reveal">
+        <p class="about-hero__role">Copywriter &amp; Marketing Strategist</p>
+        <p class="about-hero__statement">
+          A strategist who helps founders <em>stop apologising</em> for their prices, their presence, and their point of view.
+        </p>
+        <p class="about-hero__body">Your brand has flare — let's make sure the spark catches. Shelley works with a small number of bold, mission-driven founders at a time. Not because she can't handle more, but because this work deserves the full fire.</p>
+        <a href="offers.html#contact" class="btn-parchment">Work with Shelley</a>
+        <p class="about-hero__aside">Currently based in County Carlow, Ireland. Originally from South Africa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee marquee--dark" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">South Africa</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Ireland</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Copy Posse</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Bold Founders</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Mission-Driven</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Beige is Dead</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Set Fire to It</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">South Africa</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Ireland</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Copy Posse</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Bold Founders</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Mission-Driven</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Beige is Dead</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Set Fire to It</span><span class="marquee__dot"> · </span>
+  </div>
+</div>
+
+<!-- ORIGIN -->
+<section class="origin" aria-labelledby="origin-h">
+  <div class="container">
+    <div class="origin__inner">
+      <div class="reveal">
+        <p class="origin__sidebar-label">Origin</p>
+        <div class="origin__place">KAROO.</div>
+        <div class="origin__place-detail">South African highlands<br>where she first found her voice.</div>
+        <div class="origin__place-divider"></div>
+        <div class="origin__place">CARLOW.</div>
+        <div class="origin__place-detail">County Carlow, Ireland<br>where she refined it.</div>
+      </div>
+      <div>
+        <h2 class="origin__main-h2 reveal" id="origin-h">
+          She crossed hemispheres.<br>
+          She didn't <em>soften her message</em><br>when she landed.
+        </h2>
+        <p class="origin__body reveal">
+          Shelley Sunjka grew up in South Africa — a place that teaches you to be direct, to read a room, and to mean what you say. She brought that instinct across the world to Ireland, where she built a career as a copywriter and marketing strategist for founders who are tired of sounding like everyone else.
+        </p>
+        <blockquote class="origin__pull reveal">
+          "Your message is your most powerful asset. Not your logo. Not your colour palette. Your words."
+        </blockquote>
+        <p class="origin__body reveal">
+          <strong>She is a member of The Copy Posse</strong> — Alex Cattoni's global community of storytellers and copywriters. She brings full-funnel thinking, brand voice strategy, and campaign architecture to small but mighty brands who are doing something that actually matters.
+        </p>
+        <p class="origin__body reveal">
+          Her clients include <strong>animal rescue nonprofits, female-founded consultancies, and mission-driven service businesses</strong> who needed words that could carry the weight of what they believe.
+        </p>
+        <a href="proof.html" class="btn-fire" style="margin-top:1rem;display:inline-block;">Read the proof</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values" aria-labelledby="values-h">
+  <div class="container">
+    <p class="eyebrow eyebrow--light reveal">How she works</p>
+    <h2 class="values__h2 reveal" id="values-h">WHAT FIREHEART<span>stands for.</span></h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-num">01</div>
+        <h3 class="value-name">Precision over volume</h3>
+        <p class="value-desc">Every word earns its place. Shelley doesn't write more — she writes better. A small number of clients, fully served, every time.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">02</div>
+        <h3 class="value-name">Mission-first thinking</h3>
+        <p class="value-desc">The brands she works with aren't just selling — they're doing something that matters. That mission lives in every word she writes.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">03</div>
+        <h3 class="value-name">Polarisation over approval</h3>
+        <p class="value-desc">If your message doesn't repel the wrong people, it won't attract the right ones. She helps you plant your flag and hold your ground.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" aria-labelledby="approach-h">
+  <div class="container">
+    <div class="approach__inner">
+      <p class="eyebrow reveal">The process</p>
+      <h2 class="approach__h2 reveal" id="approach-h">HOW THIS WORKS<span>from first conversation to launch.</span></h2>
+      <div class="approach-steps">
+        <div class="approach-step reveal">
+          <div class="approach-step__num">01</div>
+          <div><h3 class="approach-step__name">Discovery</h3><p class="approach-step__desc">We start with a deep-dive conversation. Shelley learns your brand, your audience, your ambitions, and your blockers. The work begins before a word is written.</p></div>
+        </div>
+        <div class="approach-step reveal">
+          <div class="approach-step__num">02</div>
+          <div><h3 class="approach-step__name">Strategy</h3><p class="approach-step__desc">Brand voice framework, messaging architecture, buyer journey mapping. The strategic layer that makes everything that follows land harder.</p></div>
+        </div>
+        <div class="approach-step reveal">
+          <div class="approach-step__num">03</div>
+          <div><h3 class="approach-step__name">Copy</h3><p class="approach-step__desc">Words that earn their place. Every headline, every CTA, every story — written with precision and tested against your actual goals.</p></div>
+        </div>
+        <div class="approach-step reveal">
+          <div class="approach-step__num">04</div>
+          <div><h3 class="approach-step__name">Refinement</h3><p class="approach-step__desc">Two rounds of revision, full collaboration. Your voice, her craft. You'll know it's right when it sounds exactly like you — but sharper.</p></div>
+        </div>
+      </div>
+      <div style="margin-top:3rem;" class="reveal">
+        <a href="offers.html#contact" class="btn-fire">Start the conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<!-- FOOTER SHARED -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-name">FIRE<b>HEART</b></div>
+        <p class="footer__tagline">"Your brand has flare —<br>let's make sure the spark catches."</p>
+        <a href="mailto:hello@fireheart.co" class="footer__email">hello@fireheart.co</a>
+      </div>
+      <div>
+        <p class="footer__col-label">Navigate</p>
+        <nav class="footer__col-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="proof.html">Proof</a>
+          <a href="blog.html">Journal</a>
+          <a href="offers.html">Offers</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-label">Connect</p>
+        <nav class="footer__col-links">
+          <a href="https://linkedin.com" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://instagram.com" rel="noopener noreferrer">Instagram</a>
+          <a href="https://theprolificquill.com" rel="noopener noreferrer">The Prolific Quill</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-label">Location</p>
+        <nav class="footer__col-links">
+          <a href="#">County Carlow, Ireland</a>
+          <a href="#">Serving founders worldwide</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Shelley Sunjka — Fireheart Copywriting & Marketing Strategy</p>
+      <p class="footer__location">fireheart.co</p>
+    </div>
+  </div>
+</footer>
+
+<script>// Shared JS — nav scroll, mobile toggle, scroll reveal
+(function() {
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  if (nav) {
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  // Mobile toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Active nav link
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav__links a').forEach(function(a) {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e, i) {
+        if (e.isIntersecting) {
+          e.target.style.animationDelay = (i * 0.07) + 's';
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { io.observe(el); });
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

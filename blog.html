@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Journal — Fireheart Copywriting & Marketing Strategy</title>
+<style>/* ═══════════════════════════════════════════════════════════════
+   FIREHEART — SHARED DESIGN SYSTEM
+   Bespoke luxury texture with bold fire energy
+═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+:root {
+  /* Palette */
+  --boma:        #0D0A08;
+  --karoo:       #0A0D1A;
+  --carlow:      #1C1F2A;
+  --vellum:      #F2EDE6;
+  --first-light: #FBF0E8;
+  --haze:        #EBF0FA;
+  --bone:        #FAF8F5;
+  --wildfire:    #FF7055;
+  --ember:       #FF8C52;
+  --gold:        #FFAA3A;
+  --welder:      #1A3AAA;
+  --forge:       #9BB8FF;
+  --ash:         #C4D5FF;
+  /* Warm neutrals */
+  --parchment:   #EDE4D4;
+  --aged:        #D4C8B0;
+  --ink:         #2A2018;
+
+  /* Type */
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --display: 'Bebas Neue', Impact, sans-serif;
+  --sans:    'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--boma);
+  color: var(--vellum);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── TEXTURE SYSTEM ──────────────────────────────────────────── */
+
+/* SVG grain filter — reusable */
+.noise-filter { position: fixed; width: 0; height: 0; pointer-events: none; }
+
+/* Base grain overlay — every dark section gets this */
+.grain::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.055'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Linen texture — warm sections */
+.linen::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='6' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Halftone dot pattern */
+.halftone::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,112,85,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Cross-hatch pattern */
+.crosshatch::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,112,85,0.04) 0, rgba(255,112,85,0.04) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(-45deg, rgba(255,112,85,0.04) 0, rgba(255,112,85,0.04) 1px, transparent 0, transparent 50%);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Diagonal stripe — cobalt sections */
+.stripe::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 8px,
+    rgba(155,184,255,0.04) 8px,
+    rgba(155,184,255,0.04) 9px
+  );
+  pointer-events: none;
+}
+
+/* Torn paper edge top */
+.torn-top::before {
+  content: '';
+  position: absolute; top: -1px; left: 0; right: 0; z-index: 2;
+  height: 32px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 32' preserveAspectRatio='none'%3E%3Cpath d='M0,32 C120,8 240,28 360,14 C480,0 600,24 720,12 C840,0 960,26 1080,16 C1200,6 1320,22 1440,10 L1440,0 L0,0 Z' fill='%23F2EDE6'/%3E%3C/svg%3E") center/cover no-repeat;
+  pointer-events: none;
+}
+
+.torn-top-dark::before {
+  content: '';
+  position: absolute; top: -1px; left: 0; right: 0; z-index: 2;
+  height: 28px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 28' preserveAspectRatio='none'%3E%3Cpath d='M0,28 C180,6 360,24 540,12 C720,0 900,22 1080,14 C1260,6 1380,20 1440,8 L1440,0 L0,0 Z' fill='%230D0A08'/%3E%3C/svg%3E") center/cover no-repeat;
+  pointer-events: none;
+}
+
+/* Aged paper section bg */
+.aged-paper {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.9 0.1 0 0 0.05 0.08 0.85 0.05 0 0.04 0.02 0.08 0.8 0 0.03 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23p)' opacity='1'/%3E%3C/svg%3E"),
+    var(--parchment);
+  background-blend-mode: multiply, normal;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────────────── */
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 4rem); }
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: clamp(0.875rem, 1.8vw, 1.1rem) 0;
+  transition: background 0.4s, border-color 0.4s;
+}
+.nav.scrolled {
+  background: rgba(13,10,8,0.95);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 0.5px solid rgba(255,112,85,0.18);
+}
+.nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.nav__logo {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  letter-spacing: 0.06em;
+  color: var(--vellum);
+}
+.nav__logo b { color: var(--wildfire); }
+.nav__links { display: flex; gap: clamp(1.5rem, 2.8vw, 2.5rem); align-items: center; }
+.nav__links a {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(242,237,230,0.55);
+  transition: color 0.2s;
+  position: relative;
+}
+.nav__links a:hover,
+.nav__links a.active { color: var(--vellum); }
+.nav__links a.active::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1px; background: var(--wildfire);
+}
+.nav__cta {
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--boma); background: var(--wildfire);
+  padding: 9px 22px; font-weight: 500;
+  transition: background 0.2s;
+}
+.nav__cta:hover { background: var(--ember); }
+.nav__toggle { display: none; background: none; border: none; cursor: pointer; color: var(--vellum); padding: 4px; }
+
+/* ── MARQUEE ─────────────────────────────────────────────────── */
+.marquee { overflow: hidden; padding: 13px 0; }
+.marquee--fire { background: var(--wildfire); }
+.marquee--dark { background: var(--carlow); border-top: 0.5px solid rgba(255,112,85,0.15); border-bottom: 0.5px solid rgba(255,112,85,0.15); }
+.marquee__track { display: inline-flex; gap: 3rem; white-space: nowrap; animation: marqueeScroll 32s linear infinite; }
+.marquee__track:hover { animation-play-state: paused; }
+.marquee--fire .marquee__item  { font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em; color: var(--boma); }
+.marquee--fire .marquee__dot   { color: var(--boma); opacity: 0.3; }
+.marquee--dark .marquee__item  { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,237,230,0.45); }
+.marquee--dark .marquee__dot   { color: rgba(255,112,85,0.4); }
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn-fire {
+  display: inline-block; background: var(--wildfire); color: var(--boma);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; padding: 15px 36px;
+  transition: background 0.2s, transform 0.15s;
+  position: relative; overflow: hidden;
+}
+.btn-fire::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0; transition: opacity 0.2s;
+}
+.btn-fire:hover { background: var(--ember); transform: translateY(-2px); }
+.btn-fire:hover::after { opacity: 1; }
+
+.btn-outline {
+  display: inline-block; border: 1px solid var(--wildfire); color: var(--wildfire);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 14px 36px; transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--wildfire); color: var(--boma); transform: translateY(-2px); }
+
+.btn-dark {
+  display: inline-block; background: var(--boma); color: var(--vellum);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; padding: 15px 36px;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-dark:hover { background: var(--carlow); transform: translateY(-2px); }
+
+.btn-parchment {
+  display: inline-block; background: var(--boma); color: var(--vellum);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; padding: 15px 36px;
+  border: 1px solid rgba(42,32,24,0.35);
+  transition: all 0.2s;
+}
+.btn-parchment:hover { background: var(--ink); transform: translateY(-2px); }
+
+/* ── SECTION LABELS ──────────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--wildfire); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--wildfire); flex-shrink: 0; }
+.eyebrow--light { color: rgba(42,32,24,0.55); }
+.eyebrow--light::before { background: rgba(42,32,24,0.35); }
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+.footer {
+  background: var(--ink);
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  position: relative; overflow: hidden;
+}
+.footer::after {
+  content: 'FIREHEART';
+  font-family: var(--display);
+  font-size: 20vw; line-height: 1;
+  color: rgba(255,112,85,0.04);
+  position: absolute; bottom: -2vw; right: -1vw;
+  pointer-events: none; user-select: none;
+}
+.footer__top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  border-bottom: 0.5px solid rgba(242,237,230,0.08);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  position: relative; z-index: 1;
+}
+.footer__brand-name {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 0.06em; line-height: 1;
+  color: var(--vellum); margin-bottom: 1rem;
+}
+.footer__brand-name b { color: var(--wildfire); }
+.footer__tagline {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  color: rgba(242,237,230,0.45); margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.footer__email {
+  font-size: 0.7rem; letter-spacing: 0.14em;
+  color: var(--wildfire);
+}
+.footer__col-label {
+  font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(242,237,230,0.3); margin-bottom: 1.25rem;
+}
+.footer__col-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.footer__col-links a {
+  font-size: 0.8rem; color: rgba(242,237,230,0.45);
+  transition: color 0.2s;
+}
+.footer__col-links a:hover { color: var(--vellum); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.75rem;
+  position: relative; z-index: 1;
+}
+.footer__copy { font-size: 0.63rem; letter-spacing: 0.08em; color: rgba(242,237,230,0.2); }
+.footer__location { font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,237,230,0.2); }
+
+/* ── ANIMATIONS ──────────────────────────────────────────────── */
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+.reveal { opacity: 0; }
+.reveal.in-view { animation: fadeUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+/* ── MOBILE ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__cta   { display: none; }
+  .nav__toggle { display: block; }
+  .nav__links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 100%; left: 0; right: 0; background: rgba(13,10,8,0.98);
+    padding: 1.5rem clamp(1.25rem,5vw,4rem); gap: 1.25rem;
+    border-bottom: 0.5px solid rgba(255,112,85,0.15);
+  }
+  .footer__top { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, .reveal, [class*="hero__"] { animation: none !important; opacity: 1 !important; }
+  .marquee__track { animation: none; }
+}
+
+/* ── ACCESSIBILITY ───────────────────────────────────────────── */
+.sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--forge); outline-offset: 3px; }
+</style>
+<style>
+/* ── JOURNAL HERO ───────────────────────────────── */
+.journal-hero {
+  padding-top: 72px;
+  background: var(--parchment);
+  min-height: 55vh; display: flex; align-items: flex-end;
+  position: relative; overflow: hidden;
+}
+.journal-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='6' seed='12' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.18'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23t)' opacity='0.12'/%3E%3C/svg%3E");
+}
+/* Aged vertical rules */
+.journal-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(42,32,24,0.03) 0, rgba(42,32,24,0.03) 1px, transparent 0, transparent 60px);
+}
+.journal-hero__content {
+  padding: clamp(5rem,10vw,9rem) 0 clamp(3rem,6vw,5rem);
+  position: relative; z-index: 1; width: 100%;
+}
+.journal-hero__h1 {
+  font-family: var(--display);
+  font-size: clamp(4.5rem,12vw,10rem);
+  letter-spacing: 0.02em; line-height: 0.88; color: var(--ink);
+}
+.journal-hero__h1-serif {
+  display: block; font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(2rem,5vw,4.5rem); color: var(--wildfire); line-height: 1;
+}
+.journal-hero__sub {
+  font-size: clamp(0.95rem,1.7vw,1.1rem); line-height: 1.8;
+  color: rgba(42,32,24,0.6); max-width: 480px; margin-top: 1.5rem;
+}
+
+/* ── FEATURED POST ──────────────────────────────── */
+.featured-post {
+  background: var(--boma); padding: clamp(4rem,10vw,8rem) 0;
+  position: relative; overflow: hidden;
+}
+.featured-post::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,112,85,0.06) 1px, transparent 1px);
+  background-size: 24px 24px; pointer-events: none;
+}
+.featured-post__inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,6vw,6rem); align-items: center;
+  position: relative; z-index: 1;
+}
+.featured-post__img {
+  width: 100%; aspect-ratio: 4/3; background: var(--carlow);
+  position: relative; overflow: hidden;
+}
+/* Halftone overlay */
+.featured-post__img::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,112,85,0.1) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.featured-post__img-label {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.5rem;
+}
+.featured-post__img-txt { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,112,85,0.4); }
+.featured-post__tag { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--wildfire); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+.featured-post__tag::before { content: ''; width: 20px; height: 1px; background: var(--wildfire); }
+.featured-post__h2 { font-family: var(--serif); font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 300; color: var(--vellum); line-height: 1.3; margin-bottom: 1rem; }
+.featured-post__h2 em { font-style: italic; color: var(--ember); }
+.featured-post__meta { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(242,237,230,0.3); margin-bottom: 1rem; }
+.featured-post__excerpt { font-size: clamp(0.95rem,1.7vw,1.1rem); line-height: 1.8; color: rgba(242,237,230,0.6); margin-bottom: 2rem; }
+
+/* ── POST GRID ──────────────────────────────────── */
+.post-grid-section {
+  background: var(--first-light); padding: clamp(4rem,10vw,8rem) 0;
+  position: relative; overflow: hidden;
+}
+.post-grid-section::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.75' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+}
+.post-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(1.5rem,3vw,2.5rem); position: relative; z-index: 1; }
+.post-card {
+  background: white; /* pure white against parchment for Prada-like layering */
+  box-shadow: 0 2px 24px rgba(42,32,24,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; overflow: hidden;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 8px 40px rgba(42,32,24,0.14); }
+/* Top accent line */
+.post-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--wildfire); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s; z-index: 1;
+}
+.post-card:hover::before { transform: scaleX(1); }
+.post-card__img { width: 100%; aspect-ratio: 16/9; background: var(--parchment); position: relative; overflow: hidden; }
+.post-card__img::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(42,32,24,0.03) 0, rgba(42,32,24,0.03) 1px, transparent 0, transparent 8px
+  );
+}
+.post-card__body { padding: clamp(1.25rem,2.5vw,1.75rem); }
+.post-card__tag { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--wildfire); margin-bottom: 0.75rem; }
+.post-card__title { font-family: var(--serif); font-size: clamp(1.05rem,2vw,1.35rem); font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: 0.75rem; }
+.post-card__excerpt { font-size: 0.88rem; line-height: 1.7; color: rgba(42,32,24,0.6); margin-bottom: 1rem; }
+.post-card__meta { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(42,32,24,0.35); display: flex; justify-content: space-between; align-items: center; }
+.post-card__read { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--wildfire); border-bottom: 1px solid var(--wildfire); }
+
+/* ── SUBSCRIBE ──────────────────────────────────── */
+.subscribe {
+  background: var(--carlow); padding: clamp(4rem,8vw,7rem) 0;
+  position: relative; overflow: hidden; text-align: center;
+}
+.subscribe::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg, transparent, transparent 8px,
+    rgba(155,184,255,0.04) 8px, rgba(155,184,255,0.04) 9px
+  );
+}
+.subscribe__inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+.subscribe__h2 { font-family: var(--display); font-size: clamp(3rem,7vw,6rem); letter-spacing: 0.03em; line-height: 0.9; color: var(--vellum); margin-bottom: 0.5rem; }
+.subscribe__h2 span { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1.5rem,3vw,2.5rem); color: var(--ember); display: block; }
+.subscribe__body { font-size: clamp(0.95rem,1.7vw,1.1rem); line-height: 1.75; color: rgba(242,237,230,0.55); margin: 1.5rem 0 2rem; }
+.subscribe__form { display: flex; gap: 0; max-width: 440px; margin: 0 auto; }
+.subscribe__input {
+  flex: 1; padding: 14px 16px; background: rgba(242,237,230,0.08);
+  border: 1px solid rgba(242,237,230,0.2); border-right: none;
+  color: var(--vellum); font-family: var(--sans); font-size: 0.9rem;
+}
+.subscribe__input::placeholder { color: rgba(242,237,230,0.3); }
+.subscribe__input:focus { outline: none; border-color: var(--wildfire); }
+.subscribe__btn {
+  background: var(--wildfire); color: var(--boma);
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; padding: 14px 24px; border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+.subscribe__btn:hover { background: var(--ember); }
+
+@media (max-width: 900px) {
+  .featured-post__inner { grid-template-columns: 1fr; }
+  .post-grid { grid-template-columns: 1fr; }
+  .subscribe__form { flex-direction: column; }
+  .subscribe__input { border-right: 1px solid rgba(242,237,230,0.2); border-bottom: none; }
+}
+</style>
+</head>
+<body>
+<!-- NAV SHARED -->
+<header>
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Fireheart home">FIRE<b>HEART</b></a>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="proof.html">Proof</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="offers.html">Offers</a></li>
+      </ul>
+      <a href="offers.html#contact" class="nav__cta">Work with me</a>
+      <button class="nav__toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle menu">
+        <svg width="22" height="15" viewBox="0 0 22 15" fill="none">
+          <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="0" y1="7.5" x2="22" y2="7.5" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="0" y1="14" x2="22" y2="14" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<!-- JOURNAL HERO -->
+<section class="journal-hero" aria-labelledby="journal-h">
+  <div class="container">
+    <div class="journal-hero__content">
+      <p class="eyebrow eyebrow--light reveal">Field notes from the fire</p>
+      <h1 id="journal-h">
+        <span class="journal-hero__h1">THE</span>
+        <span class="journal-hero__h1">JOURNAL</span>
+        <span class="journal-hero__h1-serif">unfiltered strategy &amp; honest thinking.</span>
+      </h1>
+      <p class="journal-hero__sub reveal">No AI. No fluff. Just the stuff Shelley is actually thinking about — strategy, copy, and what it really takes to build a brand that doesn't blend in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee marquee--fire" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">Brand Strategy</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Messaging</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Copy That Converts</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">The Founder's Voice</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Nonprofit Marketing</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Launch Strategy</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Brand Strategy</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Messaging</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Copy That Converts</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">The Founder's Voice</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Nonprofit Marketing</span><span class="marquee__dot"> · </span>
+    <span class="marquee__item">Launch Strategy</span><span class="marquee__dot"> · </span>
+  </div>
+</div>
+
+<!-- FEATURED POST -->
+<section class="featured-post" aria-labelledby="feat-h">
+  <div class="container">
+    <div class="featured-post__inner">
+      <div class="featured-post__img reveal">
+        <div class="featured-post__img-label">
+          <span class="featured-post__img-txt">Featured post image</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="featured-post__tag">Latest · Brand Strategy</p>
+        <h2 class="featured-post__h2" id="feat-h">Why your brand doesn't have a visibility problem — it has a <em>message problem.</em></h2>
+        <p class="featured-post__meta">12 May 2026 &nbsp;·&nbsp; 6 min read</p>
+        <p class="featured-post__excerpt">Every founder I've ever worked with thinks they need more visibility. More followers. A bigger audience. Better SEO. And sometimes that's true. But most of the time? They need better words. Here's how to tell which one you have.</p>
+        <a href="#" class="btn-fire">Read the full piece</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POST GRID -->
+<section class="post-grid-section" aria-labelledby="grid-h">
+  <div class="container">
+    <p class="eyebrow eyebrow--light reveal">All posts</p>
+    <h2 style="font-family:var(--display);font-size:clamp(2.5rem,5vw,4rem);letter-spacing:0.03em;line-height:0.9;color:var(--ink);margin-bottom:clamp(2.5rem,5vw,4rem);" class="reveal" id="grid-h">FROM THE ARCHIVE</h2>
+    <div class="post-grid">
+
+      <article class="post-card reveal">
+        <div class="post-card__img"></div>
+        <div class="post-card__body">
+          <p class="post-card__tag">Messaging</p>
+          <h3 class="post-card__title">The five words that are killing your sales page</h3>
+          <p class="post-card__excerpt">You've probably used at least three of them in the last piece of copy you wrote. Let's fix that.</p>
+          <div class="post-card__meta"><span>4 Apr 2026</span><a href="#" class="post-card__read">Read →</a></div>
+        </div>
+      </article>
+
+      <article class="post-card reveal">
+        <div class="post-card__img"></div>
+        <div class="post-card__body">
+          <p class="post-card__tag">Nonprofit Marketing</p>
+          <h3 class="post-card__title">How to write donor copy that doesn't feel like begging</h3>
+          <p class="post-card__excerpt">Mission-driven organisations deserve copy that carries the weight of what they believe. Here's how to do it.</p>
+          <div class="post-card__meta"><span>18 Mar 2026</span><a href="#" class="post-card__read">Read →</a></div>
+        </div>
+      </article>
+
+      <article class="post-card reveal">
+        <div class="post-card__img"></div>
+        <div class="post-card__body">
+          <p class="post-card__tag">Brand Voice</p>
+          <h3 class="post-card__title">What does your brand sound like at 11pm when nobody's watching?</h3>
+          <p class="post-card__excerpt">That's your actual brand voice. The question is whether your website sounds anything like it.</p>
+          <div class="post-card__meta"><span>2 Mar 2026</span><a href="#" class="post-card__read">Read →</a></div>
+        </div>
+      </article>
+
+      <article class="post-card reveal">
+        <div class="post-card__img"></div>
+        <div class="post-card__body">
+          <p class="post-card__tag">Launch Strategy</p>
+          <h3 class="post-card__title">The launch email that converted 3× — and why it worked</h3>
+          <p class="post-card__excerpt">A teardown of the sequence, the strategy, and the single line that changed everything.</p>
+          <div class="post-card__meta"><span>14 Feb 2026</span><a href="#" class="post-card__read">Read →</a></div>
+        </div>
+      </article>
+
+      <article class="post-card reveal">
+        <div class="post-card__img"></div>
+        <div class="post-card__body">
+          <p class="post-card__tag">Founder</p>
+          <h3 class="post-card__title">On crossing hemispheres and finding your message on the other side</h3>
+          <p class="post-card__excerpt">South Africa taught me to mean what I say. Ireland taught me to say it precisely. Here's what that actually means for copy.</p>
+          <div class="post-card__meta"><span>28 Jan 2026</span><a href="#" class="post-card__read">Read →</a></div>
+        </div>
+      </article>
+
+      <article class="post-card reveal">
+        <div class="post-card__img"></div>
+        <div class="post-card__body">
+          <p class="post-card__tag">Strategy</p>
+          <h3 class="post-card__title">You don't need more content. You need a message.</h3>
+          <p class="post-card__excerpt">The productivity trap is real. Here's how to stop producing and start communicating.</p>
+          <div class="post-card__meta"><span>10 Jan 2026</span><a href="#" class="post-card__read">Read →</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="subscribe" aria-labelledby="sub-h">
+  <div class="container">
+    <div class="subscribe__inner">
+      <p class="eyebrow reveal" style="justify-content:center;">Never miss a piece</p>
+      <h2 class="subscribe__h2 reveal" id="sub-h">GET THE JOURNAL<span>in your inbox.</span></h2>
+      <p class="subscribe__body reveal">Honest thinking on brand, copy, and strategy. No AI. No fluff. Sent when there's something worth saying.</p>
+      <form class="subscribe__form reveal" onsubmit="return false;">
+        <input class="subscribe__input" type="email" placeholder="your@email.com" aria-label="Email address">
+        <button class="subscribe__btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+<!-- FOOTER SHARED -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-name">FIRE<b>HEART</b></div>
+        <p class="footer__tagline">"Your brand has flare —<br>let's make sure the spark catches."</p>
+        <a href="mailto:hello@fireheart.co" class="footer__email">hello@fireheart.co</a>
+      </div>
+      <div>
+        <p class="footer__col-label">Navigate</p>
+        <nav class="footer__col-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="proof.html">Proof</a>
+          <a href="blog.html">Journal</a>
+          <a href="offers.html">Offers</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-label">Connect</p>
+        <nav class="footer__col-links">
+          <a href="https://linkedin.com" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://instagram.com" rel="noopener noreferrer">Instagram</a>
+          <a href="https://theprolificquill.com" rel="noopener noreferrer">The Prolific Quill</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-label">Location</p>
+        <nav class="footer__col-links">
+          <a href="#">County Carlow, Ireland</a>
+          <a href="#">Serving founders worldwide</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Shelley Sunjka — Fireheart Copywriting & Marketing Strategy</p>
+      <p class="footer__location">fireheart.co</p>
+    </div>
+  </div>
+</footer>
+
+<script>// Shared JS — nav scroll, mobile toggle, scroll reveal
+(function() {
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  if (nav) {
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  // Mobile toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Active nav link
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav__links a').forEach(function(a) {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e, i) {
+        if (e.isIntersecting) {
+          e.target.style.animationDelay = (i * 0.07) + 's';
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { io.observe(el); });
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
